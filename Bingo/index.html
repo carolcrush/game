@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Bingo Game</title>
+        <div align="center">
+            <h1 style="margin-top: 70px;">Bingo Game</h1>
+        </div>
+        <style>
+            body {
+                background-image: url("./image.png"); 
+                background-size: cover;
+                background-attachment: fixed;
+                background-position: center;
+            }
+            div {
+                margin: 30px;
+                text-align: center;
+            }
+            table {
+                margin: auto;
+                border-collapse: collapse;
+            }
+            td {
+                border: 2px solid white;
+                width: 80px;
+                height: 80px;
+                text-align: center;
+                font-size: 30px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body text="white">
+        <div>
+            <div>
+                <label>Please put in an integer number (within 0 and 100):</label>
+                <input type="text" id="number" required minlength="4" maxlength="8" size="10" />
+                <button type="button" id="button">OK</button>
+            </div>
+            <table>
+                <tr>
+                    <td id="cell1"></td>
+                    <td id="cell2"></td>
+                    <td id="cell3"></td>
+                    <td id="cell4"></td>
+                    <td id="cell5"></td>
+                </tr>
+                <tr>
+                    <td id="cell6"></td>
+                    <td id="cell7"></td>
+                    <td id="cell8"></td>
+                    <td id="cell9"></td>
+                    <td id="cell10"></td>
+                </tr>
+                <tr>
+                    <td id="cell11"></td>
+                    <td id="cell12"></td>
+                    <td id="cell13" style="background-color: red;">free</td>
+                    <td id="cell14"></td>
+                    <td id="cell15"></td>
+                </tr>
+                <tr>
+                    <td id="cell16"></td>
+                    <td id="cell17"></td>
+                    <td id="cell18"></td>
+                    <td id="cell19"></td>
+                    <td id="cell20"></td>
+                </tr>
+                <tr>
+                    <td id="cell21"></td>
+                    <td id="cell22"></td>
+                    <td id="cell23"></td>
+                    <td id="cell24"></td>
+                    <td id="cell25"></td>
+                </tr>
+            </table>
+        </div>
+        <div id="historyNumber">
+            Previous Number:
+        </div>
+        <script src="./input.js"></script>
+    </body>
+</html>
