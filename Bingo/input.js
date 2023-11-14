@@ -72,7 +72,6 @@ function checkBingoCondition() {
     for (const condition of bingoConditions) {
         const colors = condition.map(cell => {
             const computedStyle = window.getComputedStyle(document.querySelector(`#cell${cell}`));
-            console.log(computedStyle.backgroundColor)
             return computedStyle.backgroundColor;
         });
 
