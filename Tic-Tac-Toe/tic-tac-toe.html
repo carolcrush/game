@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>〇xゲーム</title>
+        <script
+            src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+            crossorigin="anonymous">
+        </script>
+        <style>
+            body {
+                text-align: center;
+            }
+            button {
+                margin: 20px;
+            }
+            .pushed {
+                background-color: gray;
+                color: white;
+            }
+            td {
+                border: 2px solid #333;
+                width: 100px;
+                height: 100px;
+                text-align: center;
+                font-size: 70px;
+                cursor: pointer;
+            }
+            table {
+                margin: auto;
+                border-collapse: collapse;
+            }
+            #symbol {
+                white-space: pre;
+                }
+        </style>
+    </head>
+    <body>
+        <div class="buttons">
+            <h1>〇×ゲーム</h1>
+            <button id="atk_first" class="attack">先攻</button>
+            <button id="atk_after" class="attack">後攻</button>
+            <div id="symbol"></div>
+        </div>
+        <br>
+        <div id="game" style="display: none;">
+            <table>
+                <tr>
+                    <td id="0"></td>
+                    <td id="1"></td>
+                    <td id="2"></td>
+                </tr>
+                <tr>
+                    <td id="3"></td>
+                    <td id="4"></td>
+                    <td id="5"></td>
+                </tr>
+                <tr>
+                    <td id="6"></td>
+                    <td id="7"></td>
+                    <td id="8"></td>
+                </tr>
+            </table>
+            <button id="restart">リセット</button>
+        </div>
+        <script src="./index.js"></script>   
+    </body>
+</html>

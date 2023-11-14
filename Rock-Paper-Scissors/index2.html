@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>RockPaperScissors</title>
+</head>
+<body>
+    <div align="center">
+        <h1>RockPaperScissors Game</h1>
+    </div>
+    <form name="rockPaperScissors">
+        <div>Choose one of the rock-paper-scissors you want to play:</div>
+        <input type="radio" id="rock" name="choice" value="rock" onchange="check_form()"/>
+        <label for="rock">rock</label>
+        <input type="radio" id="paper" name="choice" value="paper" onchange="check_form()"/>
+        <label for="paper">paper</label>
+        <input type="radio" id="scissors" name="choice" value="scissors" onchange="check_form()"/>
+        <label for="scissors">scissors</label>
+    </form>
+    <br>
+    <br>
+   <span id="cpu-choice"></span>
+
+    <script>
+        function check_form() {
+            const choices = document.getElementsByName('choice');
+            let userChoice = '';
+            for(let i = 0; i < choices.length; i++) {
+                if(choices[i].checked) {
+                    userChoice = choices[i].value;
+                    break;
+                }
+            }
+            showCpuChoice(userChoice)
+        }
+        
+        function showCpuChoice(userChoice) {
+            const choices = ["rock","paper","scissors"];
+            let randomIndex = Math.floor(Math.random() * choices.length);
+            let cpuChoice = choices[randomIndex];
+            document.getElementById('cpu-choice').textContent = 'CPU choice: ' + cpuChoice;
+
+            setTimeout(function() {
+                playGame(userChoice, cpuChoice);
+            }, 500);
+        }
+
+        function playGame(userChoice, cpuChoice) {
+             let result = userChoice + cpuChoice;
+
+            switch (result){
+                case 'rockscissors':
+                case 'scissorspaper':
+                case 'paperrock':
+                    alert('You win!');
+                    break;
+                case 'rockpaper':
+                case 'paperscissors':
+                case 'scissorsrock':
+                    alert('You lose!');
+                    break;
+                default:
+                    alert('It\'s a draw!');
+                    break;
+            }
+
+            if(confirm('Play again?')) {
+                location.reload();
+            }
+        }
+    </script>
+</body>
+</html>

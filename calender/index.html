@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Calendar</title>
+  <div align="center">
+    <h1>Calendar</h1>
+  </div>
+  <style>
+    .box {
+        margin: 0 auto;
+        width: 880px;
+    }
+    .title {
+        background: rgb(109, 107, 107);
+    }
+    h1 {
+      background: rgb(255, 253, 253);
+      color: rgb(0, 0, 0);
+    }
+    table {
+      height: 200px;
+      width: 200px;
+      font-size: 12px;
+      text-align: center;
+      float: left;
+      margin: 30px;
+      font-family: arial;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    function calendar(year) {
+      var week = new Date(year, 0).getDay();
+      var calendarHTML = '';
+      for (var month = 1; month <= 12; month++) {
+        calendarHTML += '<table>' +
+                        '<tr class="title"><th colspan="7">' + year + '年' + month + '月</th></tr>' +
+                        '<tr><td>日</td><td>月</td><td>火</td><td>水</td><td>木</td><td>金</td><td>土</td></tr>';
+        var max = new Date(year, month, 0).getDate();
+        calendarHTML += '<tr>';
+        for (var day = 1; day <= max; day++) {
+          if (week && day == 1) {
+            calendarHTML += '<td colspan=" ' + week + '"></td>';
+          }
+          calendarHTML += '<td>' + day + '</td>';
+
+          if (week == 6 && day != max) {
+            calendarHTML += '</tr><tr>';
+          } 
+          else if (day == max) {
+            calendarHTML += '</tr>';
+          }
+          week = (week + 1 > 6) ? 0 : week + 1;
+        }
+        calendarHTML += '</table>';
+      }
+      return calendarHTML;
+    }
+  </script>
+<script>
+  var year = parseInt(prompt('1500以上の4桁の年を入力してください', new Date().getFullYear()));
+  if (year < 1500 || !Number.isInteger(year)){
+    alert('年を1500以上の4桁の整数で入力してください');
+    location.reload();
+  }
+  else{ 
+    document.write(calendar(year));
+  }
+</script>
+</body>
+</html>

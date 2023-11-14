@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <div align="center"><h1>RockPaperScissors Game</h1></div>
+    <div >Choose one of the rock-paper-scissors you want to play:</div>
+    <button type="button">rock</button>
+    <button type="button">paper</button>
+    <button type="button">scissors</button>
+    <p id="your-choice"></p>
+    <p id="cpu-choice"></p>
+    <p id="game-result"></p>
+    <script>
+        const buttons = document.querySelectorAll('button');
+        for (const button of buttons){
+            button.addEventListener("click", function(event){
+                const userChoice = event.target.textContent;
+                document.getElementById('your-choice').textContent = 'Your choice: ' + userChoice;
+                showCpuChoice(userChoice);
+            })
+        }      
+        function showCpuChoice(userChoice) {
+            const choices = ["rock","paper","scissors"];
+            const randomIndex = Math.floor(Math.random() * choices.length);
+            const cpuChoice = choices[randomIndex];
+            document.getElementById('cpu-choice').textContent = 'CPU choice: ' + cpuChoice;
+            playGame(userChoice, cpuChoice)
+        }
+        function playGame(userChoice, cpuChoice) {
+            const winPattern = {
+                rock: "scissors",
+                paper: "rock",
+                scissors: "paper"
+                }
+            if (userChoice === cpuChoice){
+                document.getElementById('game-result').textContent = 'Game result: It\'s a draw!';
+            }
+            else if(winPattern[userChoice] === cpuChoice){
+                document.getElementById('game-result').textContent = 'Game result: You win!';
+            }
+            else{
+                document.getElementById('game-result').textContent = 'Game result: You lose!';
+            }
+        }
+    </script>
+</body>
+</html>
